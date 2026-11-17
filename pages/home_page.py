@@ -27,6 +27,7 @@ class HomePage(BasePage):
         self.sorting_completed = page.get_by_test_id("sorting_completed")
         self.product_prices = page.get_by_test_id("product-price")
 
+        self.hammer_category = page.get_by_label("Hammer", exact=True)
         # TODO B2/B4 (later): price_slider_max = page.get_by_role("slider").nth(1)
 
     def open(self):
@@ -64,3 +65,7 @@ class HomePage(BasePage):
 
     def prices(self) -> list[float]:
         return [float(p.replace("$", "")) for p in self.product_prices.all_inner_texts()]
+
+    def filter_by_hammer(self):
+        self.hammer_category.check()
+        return self

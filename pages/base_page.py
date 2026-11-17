@@ -24,6 +24,7 @@ class BasePage:
 
     def open(self):
         self.page.goto(self.route_prefix + self.path)
+        wait_until="domcontentloaded"
         return self
 
     def go_to_cart(self):

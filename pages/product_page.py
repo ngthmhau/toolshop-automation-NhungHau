@@ -21,3 +21,6 @@ class ProductPage(BasePage):
     def price(self) -> float:
         # TODO B1.4: unit price as a float
         return float(self.unit_price.inner_text())
+
+    def get_name(self) -> str:
+        return self.name.inner_text().strip()
